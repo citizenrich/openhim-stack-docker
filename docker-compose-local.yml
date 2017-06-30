@@ -5,6 +5,7 @@ services:
   openhim-dev:
     container_name: openhim-dev
     image: node:8
+    # mount a locally built version (app/) not the prebuilt release
     volumes:
       - "../openhim-core/openhim-core-js:/openhim-core-js"
     command: node /openhim-core-js/bin/openhim-core.js
@@ -26,10 +27,9 @@ services:
   openhim-console:
     image: abiosoft/caddy
     # mount a locally built version (app/) not the prebuilt release
-    # but either will work as long as volume is pointing to the app
     volumes:
       - "../openhim-console/openhim-console/app:/srv"
-      - "../openhim-console/Caddyfile:/etc/Caddyfile"
+      - "./Caddyfile:/etc/Caddyfile"
     links:
       - openhim-dev
     ports:
