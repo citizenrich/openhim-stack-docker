@@ -36,4 +36,6 @@ cd ../openhim-stack-docker
 docker-compose up -d
 ```
 
+Visit https://localhost:8081
+
 The web browser will probably complain about a lack of security because a self-signed certificate is being used. Click through. Log in with root@openhim.org and openhim-password. There will probably a failure again because of a self-signed cert, so follow the link and it will then work.
