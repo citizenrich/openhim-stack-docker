@@ -13,6 +13,6 @@ services:
       mongo_atnaUrl: "mongodb://mongo/openhim"
 
   mongo:
-    image: mongo:3
+    image: mongo
     ports:
       - "27017:27017"

@@ -14,14 +14,17 @@ services:
       mongo_atnaUrl: "mongodb://mongo/openhim"
 
   mongo:
-    image: mongo:3
+    image: mongo
     ports:
       - "27017:27017"
 
   openhim-console:
     image: abiosoft/caddy
+    # path to the prebuilt release
     volumes:
+      - "../openhim-console-prebuilt:/srv"
       - "./Caddyfile:/etc/Caddyfile"
+      - "$HOME/.caddy:/root/.caddy"
     links:
       - openhim-docker
     ports:
