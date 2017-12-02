@@ -1,5 +1,8 @@
 # Quickstart using Docker for the OpenHIM stack
 
+> Note: The maintainers now provide a docker-compose file for the stack, see: https://github.com/jembi/openhim-console in infrastructure folder. Use of that file is advised.
+
+
 Thanks for the support from Jembi in this [issue](https://github.com/jembi/openhim-docker/issues/1).
 
 OpenHIM requires the [openhim-core api server](https://github.com/jembi/openhim-core-js), mongodb, administrative [console](https://github.com/jembi/openhim-console), and a web server to run the console. This uses the awesome and simple [Caddy](https://caddyserver.com).
