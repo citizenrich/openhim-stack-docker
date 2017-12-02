@@ -19,8 +19,13 @@ services:
       - "27017:27017"
 
   openhim-console:
-    image: jembi/openhim-console:latest
+    image: abiosoft/caddy
+    # path to the prebuilt release
+    volumes:
+      - "../openhim-console-prebuilt:/srv"
+      - "./Caddyfile:/etc/Caddyfile"
+      - "$HOME/.caddy:/root/.caddy"
     links:
       - openhim-docker
     ports:
-      - "8081:80"
+      - "8081:8081"

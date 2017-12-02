@@ -1,22 +1,29 @@
 # Quickstart using Docker for the OpenHIM stack
 
-> Note: This repo will not be updated. The maintainers now provide a docker-compose file for the stack, see: https://github.com/jembi/openhim-console in the infrastructure folder. Use of that file is advised.
+> Note: The maintainers now provide a docker-compose file for the stack, see: https://github.com/jembi/openhim-console in the infrastructure folder.
 
-
-Thanks for the support from Jembi in this [issue](https://github.com/jembi/openhim-docker/issues/1).
-
-OpenHIM requires the [openhim-core api server](https://github.com/jembi/openhim-core-js), mongodb, administrative [console](https://github.com/jembi/openhim-console), and a web server to run the console. This uses the awesome and simple [Caddy](https://caddyserver.com).
-
-This simple docker-compose file fires up the stack, such as for a developer environment.
+OpenHIM requires the [openhim-core api server](https://github.com/jembi/openhim-core-js), mongodb, and an administrative [console](https://github.com/jembi/openhim-console) run by a web server.
 
 ## How to use
 
-It uses the official [openhim-core](https://github.com/jembi/openhim-docker) Docker image, the official mongo image, and Caddy web server. The console app needs to be either built using node or a prebuilt release downloaded.
+This simple docker-compose file fires up the stack, such as for a developer environment.
 
-The file docker-compose.yml uses the prebuilt release. The docker-compose file instructs Docker to mount some volumes. There are two directories used, 'openhim-console-prebuilt' which will hold the prebuilt release that is served, and the clone of this repo.
+```
+git clone https://github.com/citizenrich/openhim-stack-docker
+cd openhim-stack-docker
+docker-compose up -d
+# check out the running containers
+docker ps
+```
+
+Visit https://localhost:8081
+
+The web browser will probably complain about a lack of security because a self-signed certificate is being used. Click through. Log in with root@openhim.org and openhim-password. There will probably a failure again because of a self-signed cert, so follow the link and it will then work.
 
 
-### Using the prebuilt release
+## Another approach using caddy webserver
+
+The official image for the console uses the nginx server. docker-compose-prev is an example for using the caddy webserver. The console app needs to be either built using node or a prebuilt release downloaded.
 
 Prepare the prebuilt release. Follow the [instructions](https://github.com/jembi/openhim-console):
 
@@ -39,6 +46,4 @@ cd ../openhim-stack-docker
 docker-compose up -d
 ```
 
-Visit https://localhost:8081
-
-The web browser will probably complain about a lack of security because a self-signed certificate is being used. Click through. Log in with root@openhim.org and openhim-password. There will probably a failure again because of a self-signed cert, so follow the link and it will then work.
+Thanks for the support from Jembi in this [issue](https://github.com/jembi/openhim-docker/issues/1).
