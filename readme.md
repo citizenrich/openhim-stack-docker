@@ -1,6 +1,6 @@
 # Quickstart using Docker for the OpenHIM stack
 
-> Note: The maintainers now provide a docker-compose file for the stack, see: https://github.com/jembi/openhim-console in infrastructure folder. Use of that file is advised.
+> Note: This repo will not be updated. The maintainers now provide a docker-compose file for the stack, see: https://github.com/jembi/openhim-console in the infrastructure folder. Use of that file is advised.
 
 
 Thanks for the support from Jembi in this [issue](https://github.com/jembi/openhim-docker/issues/1).
